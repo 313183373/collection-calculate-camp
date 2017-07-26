@@ -1,11 +1,6 @@
 'use strict';
 var map_to_three_multiples = function(collections){
-  let ans=[];
-  for(let i in collections){
-    ans.push(collections[i]*3);
-  }
-  return ans;
-  
+  return collections.map((value,index,arr)=>value*3);
 };
 
 module.exports = map_to_three_multiples;

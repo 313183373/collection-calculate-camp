@@ -17,22 +17,10 @@ function get_letter_interval_2(number_a, number_b) {
       }
       ans.push(c);
     }
+    return ans;
   }else{
-    for(let i=number_a;i>=number_b;i--){
-      let c="";
-      let ii=i;
-      while(ii!=0){
-        let d=letters[(ii-1)%26];
-        if(d==0){
-          ii++;
-        }
-        c=d+c;
-        ii=Math.floor((ii-1)/26);
-      }
-      ans.push(c);
-    }
+    return get_letter_interval_2(number_b,number_a).reverse();
   }
-  return ans;
 }
 
 module.exports = get_letter_interval_2;

@@ -2,20 +2,14 @@
 
 function double_to_one(collection) {
   let ans=[];
-  for(let i in collection){
-    if(typeof(collection[i])=="object"){
-      for(let j in collection[i]){
-        if(ans.indexOf(collection[i][j])==-1){
-          ans.push(collection[i][j]);
-        }
-      }
+  for(let i of collection){
+    if(Array.isArray(i)){
+      ans=ans.concat(double_to_one(i));
     }else{
-      if(ans.indexOf(collection[i])){
-        ans.push(collection[i]);
-      }
+      ans.push(i);
     }
   }
-  return ans;
+  return ans.filter((value,index,arr)=>(arr.indexOf(value))==index);
 }
 
 module.exports = double_to_one;

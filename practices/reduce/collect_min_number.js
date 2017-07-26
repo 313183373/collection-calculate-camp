@@ -1,13 +1,7 @@
 'use strict';
 
 function collect_min_number(collection) {
-  let min=collection[0];
-  for(let i=0;i<collection.length;i++){
-    if(min>collection[i]){
-      min=collection[i];
-    }
-  }
-  return min;
+  return collection.reduce((pre,now,arr)=>pre=now<pre?now:pre);
 }
 
 module.exports = collect_min_number;

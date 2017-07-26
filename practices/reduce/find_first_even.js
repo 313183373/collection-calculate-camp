@@ -2,7 +2,7 @@
 
 function find_first_even(collection) {
   return collection.find(function(value,index,arr){
-    return value%2==0;
+    return (value&1)==0;
   })
 }
 

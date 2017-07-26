@@ -1,13 +1,7 @@
 'use strict';
 
 function collect_max_number(collection) {
-  let max=0;
-  for(let i=0;i<collection.length;i++){
-    if(max<collection[i]){
-      max=collection[i];
-    }
-  }
-  return max;
+  return collection.reduce((pre,now,arr)=>pre=now>pre?now:pre);
 }
 
 module.exports = collect_max_number;

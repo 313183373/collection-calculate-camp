@@ -1,13 +1,7 @@
 'use strict';
 
 function collect_all_even(collection) {
-  let ans=[];
-  for(let i=0;i<collection.length;i++){
-    if(collection[i]%2==0){
-      ans.push(collection[i]);
-    }
-  }
-  return ans;
+  return collection.filter((value,index,arr)=> (value&1)==0);
 }
 
 module.exports = collect_all_even;
