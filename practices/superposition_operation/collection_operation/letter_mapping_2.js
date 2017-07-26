@@ -15,9 +15,7 @@ function func1(number){
 }
 
 function average_to_letter(collection) {
-  return func1(Math.ceil(collection.reduce(function(pre,current){
-    return pre+current;
-  })/collection.length));
+  return func1(Math.ceil(collection.reduce((pre,now,arr)=>pre+now)/collection.length));
 }
 
 module.exports = average_to_letter;

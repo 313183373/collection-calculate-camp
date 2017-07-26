@@ -1,15 +1,10 @@
 'use strict';
 var calculate_median = function(collection){
-    let s=[];
-    for(let i=0;i<collection.length;i++){
-        if((i+1)%2==0){
-            s.push(collection[i]);
-        }
+    let a=collection.filter((value,index,arr)=>(index+1&1)==0);
+    while(a.length>2){
+        a.pop();
+        a.shift();
     }
-    if(s.length%2==0){
-        return (s[Math.floor(s.length/2)]+s[Math.floor(s.length/2)-1])/2;
-    }else{
-        return s[Math.floor(s.length/2)];
-    }
+    return a.reduce((pre,now,arr)=>pre+now)/a.length;
 };
 module.exports = calculate_median;

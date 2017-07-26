@@ -1,11 +1,7 @@
 'use strict';
 
 function hybrid_operation_to_uneven(collection) {
-  return collection.filter(function(value,index,arr){
-    return value%2==1;
-  }).map(function(value,index,arr){
-    return value*3+2;
-  })
+  return collection.filter((value,index,arr)=>(value&1)==1).map((value,index,arr)=>value*3+2);
 }
 
 module.exports = hybrid_operation_to_uneven;

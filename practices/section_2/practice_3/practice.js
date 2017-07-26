@@ -1,28 +1,24 @@
 function count_same_elements(collection) {
-	let dic={};
+	let map=new Map();
 	let ans=[];
-	for(let i=0;i<collection.length;i++){
-		if(collection[i].length>1){
-			if(collection[i][1]=='-'||collection[i][1]==':'){
-				var cc=collection[i][1];
-				var c=collection[i].split(cc)[0];
-				var cnt=collection[i].split(cc)[1]-'0';
-			}else if(collection[i][1]=='['){
-				var c=collection[i].split('[')[0];
-				var cnt=collection[i].split('[')[1].split(']')[0]-'0';
+	for(let i of collection){
+		let ii=i,cnt=1;
+		if(i.length>1){
+			let c=i[1];
+			if(c=="-"||c==":"){
+				ii=i.split(c);
+				cnt=ii[1]*1;
+				ii=ii[0];
+			}else if(c=="["){
+				ii=i.split('[');
+				cnt=ii[1].split(']')[0]*1;
+				ii=ii[0];
 			}
-		}else{
-			var c=collection[i];
-			var cnt=1;
 		}
-		if(typeof(dic[c])=='undefined'){
-			dic[c]=cnt;
-		}else{
-			dic[c]+=cnt;
-		}
+		map.set(ii,map.has(ii)?map.get(ii)+cnt:cnt);
 	}
-	for(let item in dic){
-		ans.push({name:item,summary:dic[item]})
+	for(let item of map){
+		ans.push({name:item[0],summary:item[1]})
 	}
 	return ans;
 }

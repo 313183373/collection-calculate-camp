@@ -1,8 +1,8 @@
 function collect_same_elements(collection_a, object_b) {
   let ret=[];
-  for(let i=0;i<collection_a.length;i++){
-      if(object_b.value.indexOf(collection_a[i])!=-1){
-          ret.push(collection_a[i]);
+  for(let i of collection_a){
+      if(object_b.value.includes(i)){
+          ret.push(i);
       }
   }
   return ret;

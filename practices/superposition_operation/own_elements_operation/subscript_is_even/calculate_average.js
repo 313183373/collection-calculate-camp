@@ -1,13 +1,6 @@
 'use strict';
 var calculate_average = function(collection){
-    let sum=0;
-    let cnt=0;
-    for(let i=0;i<collection.length;i++){
-        if((i+1)%2==0){
-            sum+=collection[i];
-            cnt++;
-        }
-    }
-    return sum/cnt;
+    let a=collection.filter((value,index,arr)=>((index+1)&1)==0);
+    return a.reduce((pre,now,arr)=>pre+now)/a.length;
 };
 module.exports = calculate_average;

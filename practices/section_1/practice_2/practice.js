@@ -1,11 +1,22 @@
 function collect_same_elements(collection_a, collection_b) {
-  let ret=[];
-  for(let i=0;i<collection_a.length;i++){
-      if(collection_b[0].indexOf(collection_a[i])!=-1){
-          ret.push(collection_a[i]);
-      }
-  }
-  return ret;
+    let ans=[];
+    let b=flatten(collection_b);
+    for(let i of collection_a){
+        if(b.includes(i)){
+            ans.push(i);
+        }
+    }
+    return ans;
 }
-
+function flatten(collection){
+    let ans=[];
+    for(let j of collection){
+        if(Array.isArray(j)){
+            ans=ans.concat(flatten(j));
+        }else{
+            ans.push(j);
+        }
+    }
+    return ans;
+}
 module.exports = collect_same_elements;

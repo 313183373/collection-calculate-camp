@@ -1,21 +1,17 @@
 function create_updated_collection(collectionA, objectB) {
-  let map={};
-  for(let i=0;i<collectionA.length;i++){
-    if(typeof(map[collectionA[i]])=="undefined"){
-      map[collectionA[i]]=1;
-    }else{
-      map[collectionA[i]]++;
-    }
+  let map=new Map();
+  for(let i of collectionA){
+    map.set(i,map.has(i)?map.get(i)+1:1);
   }
-  for(let item in map){
-    if(objectB.value.indexOf(item)!=-1){
-      let cnt=Math.floor(map[item]/3);
-      map[item]-=cnt;
+  for(let item of map){
+    if(objectB.value.includes(item[0])){
+      let cnt=Math.floor(item[1]/3);
+      map.set(item[0],item[1]-cnt);
     }
   }
   let ret=[];
-  for(let item in map){
-    ret.push({key:item,count:map[item]});
+  for(let item of map){
+    ret.push({key:item[0],count:item[1]});
   }
   return ret;
 }

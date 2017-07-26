@@ -1,22 +1,13 @@
 function count_same_elements(collection) {
-	let dic={};
+	let map=new Map();
 	let ans=[];
-	for(let i=0;i<collection.length;i++){
-		if(collection[i].length>1){
-			var c=collection[i].split('-')[0];
-			var cnt=collection[i].split('-')[1]-'0';
-		}else{
-			var c=collection[i];
-			var cnt=1;
-		}
-		if(typeof(dic[c])=='undefined'){
-			dic[c]=cnt;
-		}else{
-			dic[c]+=cnt;
-		}
+	for(let i of collection){
+		let ii=i.split('-');
+		let cnt=ii.length>1?ii[1]*1:1;
+		map.set(ii[0],map.has(ii[0])?map.get(ii[0])+cnt:cnt);
 	}
-	for(let item in dic){
-		ans.push({key:item,count:dic[item]})
+	for(let item of map){
+		ans.push({key:item[0],count:item[1]})
 	}
 	return ans;
 }
