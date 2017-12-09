@@ -1,14 +1,7 @@
 'use strict';
 
 function choose_no_common_elements(collection_a, collection_b) {
-  let ans=Array.from(collection_a);
-  for(let i=0;i<ans.length;i++){
-    if(collection_b.includes(ans[i])){
-      ans.splice(i,1);
-      i--;
-    }
-  }
-  return ans;
+  return collection_a.filter((value,index,arr)=>!collection_b.includes(value));
 }
 
 module.exports = choose_no_common_elements;

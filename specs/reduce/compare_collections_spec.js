@@ -9,7 +9,6 @@ describe('compare_collections', function() {
 
   it('判断两个集合是否相同', function() {
     var result = compare_collections(collection_a, collection_b);
-
     expect(result).toEqual(true);
   });
 });

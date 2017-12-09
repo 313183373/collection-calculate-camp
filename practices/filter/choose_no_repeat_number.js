@@ -8,6 +8,7 @@ function choose_no_repeat_number(collection) {
   //  }
   //}
   //return ans;
+
   return collection.filter(function(value,index,arr){
     return collection.indexOf(value)==index;
   });
