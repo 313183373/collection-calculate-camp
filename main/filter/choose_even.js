@@ -1,7 +1,8 @@
 'use strict';
 
 function choose_even(collection) {
-  return collection.filter((value,index,arr)=>(value&1)==0)
+
+  //在这里写入代码
 }
 
 module.exports = choose_even;

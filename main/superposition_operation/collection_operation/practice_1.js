@@ -1,7 +1,8 @@
 'use strict';
 
 function hybrid_operation(collection) {
-  return collection.map((value,index,arr)=>value*3+2).reduce((pre,now,arr)=>pre+now);
+
+  //在这里写入代码
 }
 
 module.exports = hybrid_operation;

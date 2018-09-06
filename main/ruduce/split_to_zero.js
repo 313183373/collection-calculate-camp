@@ -1,13 +1,7 @@
 'use strict';
 
-function split_to_zero(number, interval) {
-  let ans=[number];
-  let n=number;
-  while(n > 0){
-    n=(n-interval).toFixed(1)*1;
-    ans.push(n);
-  }
-  return ans;
+function spilt_to_zero(number, interval) {
+  //在这里写入代码
 }
 
-module.exports = split_to_zero;
+module.exports = spilt_to_zero;
