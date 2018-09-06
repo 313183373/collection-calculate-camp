@@ -1,8 +1,8 @@
 'use strict';
 
 function find_first_even(collection) {
-  return collection.find(function(value,index,arr){
-    return (value&1)==0;
+  return collection.find(function (value) {
+    return (value & 1) === 0;
   })
 }
 
