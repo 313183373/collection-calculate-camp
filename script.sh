@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
 npm i &> /dev/null
-rm -rf specs
-mv ./__answerBranch/specs ./specs
+rm -rf spec
+mv ./__answerBranch/spec ./spec
 npm test
